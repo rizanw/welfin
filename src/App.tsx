@@ -8,6 +8,8 @@ import { AppState } from "@/store";
 import { Appearance } from "react-native";
 import { useSelector } from "react-redux";
 import { scheme } from "./theme/vars";
+import { default as welfinTheme } from "@/theme/colors.json";
+import { StatusBar } from "expo-status-bar";
 
 export default function Welfin() {
   const settings: Settings = useSelector((state: AppState) => state.settings);
@@ -27,12 +29,14 @@ export default function Welfin() {
 
   return (
     <React.Fragment>
+      <StatusBar style="auto" />
       <IconRegistry icons={EvaIconsPack} />
       <ApplicationProvider
         {...eva}
         mapping={eva.mapping}
         theme={{
           ...(scheme(settings.darkmode) === "light" ? eva.light : eva.dark),
+          ...welfinTheme,
         }}
       >
         <AppNavigator />
