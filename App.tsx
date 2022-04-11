@@ -1,14 +1,13 @@
 import React from "react";
-import * as eva from "@eva-design/eva";
-import { ApplicationProvider, IconRegistry } from "@ui-kitten/components";
-import { EvaIconsPack } from "@ui-kitten/eva-icons";
-import AppNavigator from "@/navigation";
+import { store, persistor } from "@/store";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import Welfin from "@/App";
 
 export default () => (
-  <React.Fragment>
-    <IconRegistry icons={EvaIconsPack} />
-    <ApplicationProvider {...eva} theme={{ ...eva.light }}>
-      <AppNavigator />
-    </ApplicationProvider>
-  </React.Fragment>
+  <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
+      <Welfin />
+    </PersistGate>
+  </Provider>
 );
