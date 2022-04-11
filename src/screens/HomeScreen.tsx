@@ -2,7 +2,7 @@ import { Layout } from "@ui-kitten/components";
 import { StatusBar } from "expo-status-bar";
 import { View, Text, StyleSheet } from "react-native";
 
-export default function Home() {
+export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <Layout

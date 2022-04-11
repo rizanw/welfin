@@ -1,19 +1,14 @@
 import React from "react";
 import * as eva from "@eva-design/eva";
-import {
-  ApplicationProvider,
-  IconRegistry,
-  Layout,
-  Text,
-} from "@ui-kitten/components";
+import { ApplicationProvider, IconRegistry } from "@ui-kitten/components";
 import { EvaIconsPack } from "@ui-kitten/eva-icons";
-import Home from "@/screens/Home";
+import AppNavigator from "@/navigation";
 
 export default () => (
   <React.Fragment>
     <IconRegistry icons={EvaIconsPack} />
     <ApplicationProvider {...eva} theme={{ ...eva.light }}>
-      <Home />
+      <AppNavigator />
     </ApplicationProvider>
   </React.Fragment>
 );
