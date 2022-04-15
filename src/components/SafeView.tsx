@@ -1,5 +1,11 @@
 import React from "react";
-import { Platform, SafeAreaView } from "react-native";
+import {
+  Keyboard,
+  KeyboardAvoidingView,
+  Platform,
+  SafeAreaView,
+  TouchableWithoutFeedback,
+} from "react-native";
 import Constants from "expo-constants";
 import { useSelector } from "react-redux";
 import { StatusBar } from "expo-status-bar";
@@ -17,21 +23,28 @@ export default function SafeView({ children }: Props) {
   const theme = useTheme();
 
   return (
-    <SafeAreaView
-      style={[
-        {
-          flex: 1,
-          backgroundColor: theme["background-basic-color-1"],
-        },
-        Platform.OS === "android"
-          ? { paddingTop: Constants.statusBarHeight }
-          : {},
-      ]}
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={{ flex: 1 }}
     >
-      <StatusBar
-        style={scheme(settings.darkmode) === "dark" ? "light" : "dark"}
-      />
-      {children}
-    </SafeAreaView>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <SafeAreaView
+          style={[
+            {
+              flex: 1,
+              backgroundColor: theme["background-basic-color-1"],
+            },
+            Platform.OS === "android"
+              ? { paddingTop: Constants.statusBarHeight }
+              : {},
+          ]}
+        >
+          <StatusBar
+            style={scheme(settings.darkmode) === "dark" ? "light" : "dark"}
+          />
+          {children}
+        </SafeAreaView>
+      </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>
   );
 }

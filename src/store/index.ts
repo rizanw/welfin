@@ -3,6 +3,7 @@ import { persistStore, persistReducer } from "redux-persist";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import thunk from "redux-thunk";
 import { SettingsReducer } from "./settings";
+import { WalletReducer } from "./wallet";
 
 const persistConfig = {
   key: "root",
@@ -13,6 +14,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   settings: SettingsReducer,
+  wallet: WalletReducer,
 });
 export type AppState = ReturnType<typeof rootReducer>;
 

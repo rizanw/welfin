@@ -7,6 +7,8 @@ import {
   Card,
   useStyleSheet,
 } from "@ui-kitten/components";
+import { useSelector } from "react-redux";
+import { AppState } from "@/store";
 
 interface Props {
   children?: React.ReactNode;
@@ -19,6 +21,7 @@ const data = new Array(3).fill({
 
 export default function WalletList({ children }: Props) {
   const styles = useStyleSheet(themedStyles);
+  const wallets = useSelector((state: AppState) => state.wallet ?? []);
 
   const IconCreditCard = () => (
     <Icon style={styles.icon} fill="#8F9BB3" name="credit-card" />
@@ -31,7 +34,7 @@ export default function WalletList({ children }: Props) {
         {item.name}
       </Text>
       <Text>
-        Rp. <Text category={"h6"}>{item.amount}</Text>.000
+        Rp. <Text category={"h6"}>{item.balance}</Text>.000
       </Text>
     </Card>
   );
@@ -42,7 +45,7 @@ export default function WalletList({ children }: Props) {
       showsHorizontalScrollIndicator={false}
       style={styles.container}
       contentContainerStyle={styles.contentContainer}
-      data={data}
+      data={wallets}
       renderItem={renderItem}
     />
   );
