@@ -11,6 +11,7 @@ import { scheme } from "./theme/vars";
 import { default as welfinTheme } from "@/theme/colors.json";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import SafeView from "./components/SafeView";
 
 export default function Welfin() {
   const settings: Settings = useSelector((state: AppState) => state.settings);
@@ -41,7 +42,9 @@ export default function Welfin() {
         }}
       >
         <SafeAreaProvider>
-          <AppNavigator />
+          <SafeView>
+            <AppNavigator />
+          </SafeView>
         </SafeAreaProvider>
       </ApplicationProvider>
     </React.Fragment>

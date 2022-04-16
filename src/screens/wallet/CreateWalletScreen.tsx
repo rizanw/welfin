@@ -1,3 +1,5 @@
+import { SaveIcon } from "@/components/Icons";
+import KeyboardView from "@/components/KeyboardView";
 import SafeView from "@/components/SafeView";
 import { createWallet } from "@/store/wallet/action";
 import { Wallet } from "@/store/wallet/type";
@@ -49,63 +51,68 @@ export default function CreateWalletScreen({ navigation }: Props) {
     };
 
     dispatch(createWallet(wallet));
-    navigation.goBack()
+    navigation.goBack();
   };
 
   return (
-    <SafeView>
-      <TopNavigation
-        alignment="center"
-        title="Create Wallet"
-        accessoryLeft={
-          <TopNavigationAction
-            icon={<Icon name="arrow-back" />}
-            onPress={() => navigation.goBack()}
-          />
-        }
-      />
-      <Layout
-        style={{
-          flex: 1,
-          paddingHorizontal: 16,
-          justifyContent: "space-between",
-        }}
-      >
-        <View style={{ flex: 1 }}>
-          <View style={style.card}>
-            <Text category={"h6"}>{nameInput}</Text>
-            <Text style={{ marginVertical: 18 }} category={"h5"}>
-              **** **** **** ****
-            </Text>
-            <Text category={"c1"}>active balance</Text>
-            <Text category={"h6"}>
-              Rp. {balanceInput ? parseFloat(balanceInput).toLocaleString() : 0}
-            </Text>
+    <KeyboardView>
+      <>
+        <TopNavigation
+          alignment="center"
+          title="Create Wallet"
+          accessoryLeft={
+            <TopNavigationAction
+              icon={<Icon name="arrow-back" />}
+              onPress={() => navigation.goBack()}
+            />
+          }
+        />
+        <Layout
+          style={{
+            flex: 1,
+            paddingHorizontal: 16,
+            justifyContent: "space-between",
+          }}
+        >
+          <View style={{ flex: 1 }}>
+            <View style={style.card}>
+              <Text category={"h6"}>{nameInput}</Text>
+              <Text style={{ marginVertical: 18 }} category={"h5"}>
+                **** **** **** ****
+              </Text>
+              <Text category={"c1"}>active balance</Text>
+              <Text category={"h6"}>
+                Rp.{" "}
+                {balanceInput ? parseFloat(balanceInput).toLocaleString() : 0}
+              </Text>
+            </View>
+            <Input
+              style={{ marginVertical: 16 }}
+              value={nameInput}
+              placeholder="Name"
+              onChangeText={(val: string) => {
+                setIsNameInputWrong(false);
+                setNameInput(val);
+              }}
+              status={isNameInputWrong ? "danger" : "basic"}
+            />
+            <Input
+              value={balanceInput}
+              placeholder="Balance"
+              onChangeText={(val: string) => {
+                setIsBalanceInputWrong(false);
+                setBalanceInput(val);
+              }}
+              keyboardType="numeric"
+              status={isBalanceInputWrong ? "danger" : "basic"}
+            />
           </View>
-          <Input
-            style={{ marginVertical: 16 }}
-            value={nameInput}
-            placeholder="Name"
-            onChangeText={(val: string) => {
-              setIsNameInputWrong(false);
-              setNameInput(val);
-            }}
-            status={isNameInputWrong ? "danger" : "basic"}
-          />
-          <Input
-            value={balanceInput}
-            placeholder="Balance"
-            onChangeText={(val: string) => {
-              setIsBalanceInputWrong(false);
-              setBalanceInput(val);
-            }}
-            keyboardType="numeric"
-            status={isBalanceInputWrong ? "danger" : "basic"}
-          />
-        </View>
-        <Button onPress={() => onSubmit()}>Create</Button>
-      </Layout>
-    </SafeView>
+          <Button onPress={() => onSubmit()} accessoryLeft={<SaveIcon />}>
+            Create
+          </Button>
+        </Layout>
+      </>
+    </KeyboardView>
   );
 }
 

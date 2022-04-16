@@ -34,7 +34,7 @@ export default function WalletList({ children }: Props) {
         {item.name}
       </Text>
       <Text>
-        Rp. <Text category={"h6"}>{item.balance}</Text>.000
+        Rp. <Text category={"h6"}>{item.balance.toLocaleString()}</Text>
       </Text>
     </Card>
   );

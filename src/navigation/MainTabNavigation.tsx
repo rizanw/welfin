@@ -5,8 +5,14 @@ import WalletsScreen from "@/screens/WalletsScreen";
 import {
   BottomTabBarProps,
   createBottomTabNavigator,
+  useBottomTabBarHeight,
 } from "@react-navigation/bottom-tabs";
-import { BottomNavigation, BottomNavigationTab } from "@ui-kitten/components";
+import {
+  BottomNavigation,
+  BottomNavigationTab,
+  Button,
+  Icon,
+} from "@ui-kitten/components";
 
 const Tab = createBottomTabNavigator();
 
@@ -17,7 +23,12 @@ const BottomTabBar = ({ navigation, state }: BottomTabBarProps) => (
   >
     <BottomNavigationTab title="Home" />
     <BottomNavigationTab title="Wallets" />
-    <BottomNavigationTab title="Investments" />
+    <Button
+      style={{ borderRadius: 40, maxWidth: 50, maxHeight: 50 }}
+      status="primary"
+      accessoryLeft={<Icon name="plus" />}
+      onPress={() => navigation.navigate("TransactionTabNavigation")}
+    />
     <BottomNavigationTab title="Settings" />
   </BottomNavigation>
 );
@@ -31,7 +42,7 @@ export default function MainTabNavigation() {
       >
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="Wallets" component={WalletsScreen} />
-        <Tab.Screen name="Investments" component={WalletsScreen} />
+        <Tab.Screen name="Transaction" component={WalletsScreen} />
         <Tab.Screen name="Settings" component={SettingsMenuScreen} />
       </Tab.Navigator>
     </SafeView>
