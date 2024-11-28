@@ -7,8 +7,13 @@ _site/
 .jekyll-cache/
 .jekyll-metadata
 
-# Additional Ruby/bundler ignore for when you run: bundle install
-/vendor
+# Additional Ruby/bundler ignore for when you run: bundle install.
+bundle/
+vendor/
+
+# We use Stylelint and Prettier, JavaScript tools, to lint and format our own code.
+# We use Node.js as our runtime, so we ignore node_modules
+node_modules
 
 # Specific ignore for GitHub Pages
 # GitHub Pages will always use its own deployed version of pages-gem 
@@ -16,3 +21,12 @@ _site/
 # counterproductive to check this file into the repository.
 # Details at https://github.com/github/pages-gem/issues/768
 Gemfile.lock
+
+# .DS_Store is a macOS-only metadata file about directories. Convention is to not commit them.
+# See: https://en.wikipedia.org/wiki/.DS_Store
+.DS_Store
+
+# These are legacy globs that typically target Ruby theme developers. We may change these at a later date.
+*.gem
+.bundle
+.ruby-version
