@@ -39,13 +39,16 @@ jobs:
           # Install Ruby
           sudo ruby-build 3.3.0 /opt/hostedtoolcache/Ruby/3.3.0/x64
           
+          # Set permissions for the Ruby directory
+          sudo chown -R $USER:$USER /opt/hostedtoolcache/Ruby/3.3.0/x64
+          
           # Mark installation as complete
           sudo touch /opt/hostedtoolcache/Ruby/3.3.0/x64.complete
           
           # Add Ruby to PATH
           echo "/opt/hostedtoolcache/Ruby/3.3.0/x64/bin" >> $GITHUB_PATH
           
-          # Install bundler
+          # Install bundler with correct permissions
           /opt/hostedtoolcache/Ruby/3.3.0/x64/bin/gem install bundler
 
       - name: Setup Pages
@@ -53,7 +56,11 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Install dependencies
-        run: bundle install
+        run: |
+          # Ensure bundle config directory exists and has correct permissions
+          mkdir -p ~/.bundle
+          bundle config set --local path 'vendor/bundle'
+          bundle install
 
       - name: Build with Jekyll
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
@@ -73,3 +80,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        
