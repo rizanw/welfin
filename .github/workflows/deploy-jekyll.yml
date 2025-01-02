@@ -30,39 +30,40 @@ jobs:
           mkdir -p $HOME/.gem/ruby/3.2.0
           chmod -R 755 $HOME/.gem
           
-          # Set secure gem environment with correct Ruby version path
+          # Export path in current shell and persist for subsequent steps
+          echo "GEM_HOME=$HOME/.gem/ruby/3.2.0" >> $GITHUB_ENV
+          echo "GEM_PATH=$HOME/.gem/ruby/3.2.0" >> $GITHUB_ENV
+          echo "PATH=$HOME/.gem/ruby/3.2.0/bin:$PATH" >> $GITHUB_ENV
+          
+          # Set for current shell
           export GEM_HOME="$HOME/.gem/ruby/3.2.0"
           export GEM_PATH="$HOME/.gem/ruby/3.2.0"
           export PATH="$HOME/.gem/ruby/3.2.0/bin:$PATH"
           
-          # Install bundler with explicit user permissions
-          gem install --user-install bundler
+          # Install bundler using full path
+          /usr/bin/gem install --user-install bundler
           
-          # Verify installation and permissions
-          which bundle
+          # Verify installation
+          which ruby
           ruby -v
-          bundle -v
-
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v5
+          which gem
+          gem -v
+          which bundle || echo "bundle not found in PATH"
+          echo "Current PATH: $PATH"
 
       - name: Install dependencies
         env:
-          GEM_HOME: "$HOME/.gem/ruby/3.2.0"
-          GEM_PATH: "$HOME/.gem/ruby/3.2.0"
-          PATH: "$HOME/.gem/ruby/3.2.0/bin:$PATH"
+          GITHUB_PAGES: true
         run: |
-          bundle config set --local path 'vendor/bundle'
-          bundle install --jobs=4 --retry=3
+          source $GITHUB_ENV
+          /usr/bin/gem environment
+          /home/runner/.gem/ruby/3.2.0/bin/bundle config set --local path 'vendor/bundle'
+          /home/runner/.gem/ruby/3.2.0/bin/bundle install --jobs=4 --retry=3
 
       - name: Build with Jekyll
         env:
           JEKYLL_ENV: production
-          GEM_HOME: "$HOME/.gem/ruby/3.2.0"
-          GEM_PATH: "$HOME/.gem/ruby/3.2.0"
-          PATH: "$HOME/.gem/ruby/3.2.0/bin:$PATH"
-        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        run: /home/runner/.gem/ruby/3.2.0/bin/bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
