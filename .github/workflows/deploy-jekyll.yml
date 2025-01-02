@@ -27,20 +27,21 @@ jobs:
           sudo apt-get install -y ruby-full build-essential zlib1g-dev
           
           # Create and set proper permissions for gem directories
-          mkdir -p $HOME/.gem
-          chmod 755 $HOME/.gem
+          mkdir -p $HOME/.gem/ruby/3.2.0
+          chmod -R 755 $HOME/.gem
           
-          # Set secure gem environment
-          export GEM_HOME="$HOME/.gem"
-          export GEM_PATH="$HOME/.gem"
-          export PATH="$HOME/.gem/bin:$PATH"
+          # Set secure gem environment with correct Ruby version path
+          export GEM_HOME="$HOME/.gem/ruby/3.2.0"
+          export GEM_PATH="$HOME/.gem/ruby/3.2.0"
+          export PATH="$HOME/.gem/ruby/3.2.0/bin:$PATH"
           
           # Install bundler with explicit user permissions
           gem install --user-install bundler
           
           # Verify installation and permissions
           which bundle
-          ls -la $HOME/.gem
+          ruby -v
+          bundle -v
 
       - name: Setup Pages
         id: pages
@@ -48,20 +49,20 @@ jobs:
 
       - name: Install dependencies
         env:
-          GEM_HOME: "$HOME/.gem"
-          GEM_PATH: "$HOME/.gem"
+          GEM_HOME: "$HOME/.gem/ruby/3.2.0"
+          GEM_PATH: "$HOME/.gem/ruby/3.2.0"
+          PATH: "$HOME/.gem/ruby/3.2.0/bin:$PATH"
         run: |
-          # Set bundle config securely
           bundle config set --local path 'vendor/bundle'
-          bundle config set --local deployment 'true'
           bundle install --jobs=4 --retry=3
 
       - name: Build with Jekyll
-        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
-          GEM_HOME: "$HOME/.gem"
-          GEM_PATH: "$HOME/.gem"
+          GEM_HOME: "$HOME/.gem/ruby/3.2.0"
+          GEM_PATH: "$HOME/.gem/ruby/3.2.0"
+          PATH: "$HOME/.gem/ruby/3.2.0/bin:$PATH"
+        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
