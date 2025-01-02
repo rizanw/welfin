@@ -30,3 +30,6 @@ Gemfile.lock
 *.gem
 .bundle
 .ruby-version
+
+# IDE
+.idea

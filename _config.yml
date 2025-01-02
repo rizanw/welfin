@@ -13,13 +13,16 @@
 # you will see them accessed via {{ site.title }}, {{ site.github_repo }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}
-title: welfin docs
+title: welfin
 description: >-
-  welfin documentations
+  Whether you're managing day-to-day expenses or planning long-term financial goals, 
+  welfin is here to guide you every step of the way. 
+  Download now and start making smarter financial decisions today!
 baseurl: ""
 url: "https://rizanw.github.io/welfin-docs"
 repository: rizanw/welfin-docs
 github_username: rizanw
+favicon_ico: "/assets/images/favicon.ico"
 
 # Build settings
 theme: just-the-docs
