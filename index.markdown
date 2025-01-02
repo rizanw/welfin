@@ -15,7 +15,7 @@ Intuitive mobile app that helps you manage your finances—track your cash flow 
 
 
 <div class="main-menu">
-  <a href="/download" class="button download-button">
+  <a href="{{ site.baseurl }}/download" class="button download-button">
     Download Now!
   </a>
 </div>
