@@ -1,0 +1,72 @@
+.main-menu {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    align-items: center;
+    margin-top: 24px;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    padding: 8px 18px;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.button:hover {
+    opacity: 0.8;
+}
+
+.download-button {
+    color: white;
+    background-color: #22415D;
+}
+
+.download-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 18px;
+}
+
+.welfin-icon {
+    height: 128px;
+    border-radius: 10%;
+    display: block;
+    margin: 0 auto;
+}
+
+.qr-scan {
+    height: 256px;
+}
+
+.store-icon {
+    height: 64px;
+    margin-right: 8px;
+    margin-left: 8px;
+}
+
+.coming-soon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 10px 15px;
+    margin-top: 10px;
+}
+
+.coming-soon span {
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.store-button:hover {
+    opacity: 0.8;
+}
