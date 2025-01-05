@@ -10,7 +10,7 @@ nav_order: 1
 welfin
 </p>
 <p class="fs-4 lh-tight text-center">
-Intuitive mobile app that helps you manage your finances—track your cash flow by income and expenses, and set budgets to stay on top of your finances. With a simple interface and powerful tools, it makes managing your money effortless.
+Simple, intuitive mobile app designed to help you take control of your finances and build healthy financial habits to reach your financial goals. Track your incomes & expenses, set budgets, and monitor your progress—all with friendly user-interface. welfin is free, ad-free, and prioritizes your privacy, so you can manage your money without distractions & worries.
 </p>
 
 
