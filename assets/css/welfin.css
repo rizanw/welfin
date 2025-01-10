@@ -30,9 +30,21 @@
     display: flex;
     justify-content: center;
     gap: 16px;
-    flex-direction: column;
     align-items: center;
     margin-top: 18px;
+}
+
+@media (max-width: 768px) {
+    .download-buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .download-buttons {
+        gap: 10px;
+    }
 }
 
 .welfin-icon {
@@ -50,21 +62,6 @@
     height: 64px;
     margin-right: 8px;
     margin-left: 8px;
-}
-
-.coming-soon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    padding: 10px 15px;
-    margin-top: 10px;
-}
-
-.coming-soon span {
-    font-size: 16px;
-    font-weight: bold;
-    margin-left: 10px;
 }
 
 .store-button:hover {

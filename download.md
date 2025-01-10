@@ -18,10 +18,9 @@ permalink: /download
     <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" class="store-icon" />
   </a>
 
-  <div class="coming-soon">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/App_Store_%28iOS%29.svg" alt="App Store" class="store-icon" />
-    <span>Coming Soon</span>
-  </div>
+  <a href="https://apps.apple.com/us/app/welfin-money-manager/id6740206481" target="_blank" class="store-button">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store" class="store-icon" />
+  </a>
 </div>
 
 <script type="text/javascript">
@@ -37,6 +36,7 @@ permalink: /download
             window.location.href = "https://play.google.com/store/apps/details?id=xyz.rzndwb.welfin";
         }
         else if (/iPhone|iPad|iPod/i.test(userAgent)) {
+            window.location.href = "https://apps.apple.com/us/app/welfin-money-manager/id6740206481";
         }
         else {
             welfinIcon.src = "{{ '/assets/images/qr-download.webp' | relative_url }}";
