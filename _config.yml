@@ -15,12 +15,11 @@
 # in the templates via {{ site.myvariable }}
 title: welfin
 description: >-
-  Whether you're managing day-to-day expenses or planning long-term financial goals, 
-  welfin is here to guide you every step of the way. 
+  welfin — personal finance companion designed to help you develop good financial habits and grow your wealth to achieve your dreams!
   Download now and start making smarter financial decisions today!
 baseurl: ""
-url: "https://rizanw.github.io/welfin-docs"
-repository: rizanw/welfin-docs
+url: "https://welfin.rzndwb.xyz"
+repository: rizanw/welfin
 github_username: rizanw
 favicon_ico: "/assets/images/favicon.ico"
 
