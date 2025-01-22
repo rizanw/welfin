@@ -22,6 +22,7 @@ url: "https://welfin.rzndwb.xyz"
 repository: rizanw/welfin
 github_username: rizanw
 favicon_ico: "/assets/images/favicon.ico"
+icon: "/assets/images/icon.webp"
 
 # Build settings
 theme: just-the-docs
