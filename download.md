@@ -1,6 +1,7 @@
 ---
 layout: default
-title: Download
+title: Download welfin
+description: personal finance companion designed to help you develop good financial habits and grow your wealth! Download now and start making smarter financial decisions today!">
 permalink: /download
 ---
 

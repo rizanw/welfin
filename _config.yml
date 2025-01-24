@@ -13,7 +13,8 @@
 # you will see them accessed via {{ site.title }}, {{ site.github_repo }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}
-title: welfin
+name: "welfin"
+title: ""
 description: >-
   welfin — personal finance companion designed to help you develop good financial habits and grow your wealth to achieve your dreams!
   Download now and start making smarter financial decisions today!
@@ -22,12 +23,16 @@ url: "https://welfin.rzndwb.xyz"
 repository: rizanw/welfin
 github_username: rizanw
 favicon_ico: "/assets/images/favicon.ico"
-icon: "/assets/images/icon.webp"
+logo: "/assets/images/logo.png"
 
 # Build settings
 theme: just-the-docs
 permalink: pretty
 defaults:
+  - scope:
+      path: ""
+    values:
+      image: "/assets/images/icon.webp"
   - scope:
       path: "docs" # an empty string here means all files in the project
       type: "pages"
@@ -37,6 +42,7 @@ plugins:
   - jekyll-github-metadata
   - jekyll-include-cache
   - jekyll-sitemap
+  - jekyll-seo-tag
 
 twitter:
   username: rzndwb

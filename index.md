@@ -1,7 +1,7 @@
 ---
 layout: home
-title: About
-nav_order: 1
+title: "welfin: your personal finance companion"
+nav_exclude: true
 ---
 
 ![welfin]({{ '/assets/images/icon.webp' | relative_url }}){: .welfin-icon}
