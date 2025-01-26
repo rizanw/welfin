@@ -46,7 +46,7 @@ plugins:
 
 twitter:
   username: rzndwb
-  card: summary
+  card: summary_large_image
 
 # Enable or disable the site search
 # Supports true (default) or false
