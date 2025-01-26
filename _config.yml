@@ -23,7 +23,7 @@ url: "https://welfin.rzndwb.xyz"
 repository: rizanw/welfin
 github_username: rizanw
 favicon_ico: "/assets/images/favicon.ico"
-logo: "/assets/images/logo.png"
+logo: "/assets/images/logo.webp"
 
 # Build settings
 theme: just-the-docs
@@ -32,7 +32,7 @@ defaults:
   - scope:
       path: ""
     values:
-      image: "/assets/images/icon.webp"
+      image: "/assets/images/logo-banner.png"
   - scope:
       path: "docs" # an empty string here means all files in the project
       type: "pages"
