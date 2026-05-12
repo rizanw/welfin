@@ -67,3 +67,29 @@
 .store-button:hover {
     opacity: 0.8;
 }
+
+.project-archive-alert {
+    margin: 12px 0 8px;
+    padding: 12px 14px;
+    border: 1px solid #f2b84b;
+    border-left: 4px solid #d89000;
+    border-radius: 8px;
+    background-color: #fff9e8;
+    color: #4c3c14;
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+.project-archive-alert p {
+    margin: 0;
+}
+
+.project-archive-alert a {
+    color: #a85a00;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.project-archive-alert a:hover {
+    opacity: 0.85;
+}
