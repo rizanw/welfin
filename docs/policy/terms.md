@@ -5,6 +5,8 @@ permalink: /policy/terms
 nav_enabled: false
 ---
 
+{% include project_archive_alert.html %}
+
 **Terms & Conditions**
 
 These terms and conditions applies to the welfin app (hereby referred to as "Application") for mobile devices that was created by RZNDWB (hereby referred to as "Service Provider") as a Free service.

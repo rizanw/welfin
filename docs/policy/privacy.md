@@ -5,6 +5,8 @@ permalink: /policy/privacy
 nav_enabled: false
 ---
 
+{% include project_archive_alert.html %}
+
 # Privacy Policy
 
 <sub><sup>Last updated: January 10, 2025</sup></sub>

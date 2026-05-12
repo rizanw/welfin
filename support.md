@@ -4,6 +4,8 @@ title: Support
 permalink: /support
 ---
 
+{% include project_archive_alert.html %}
+
 # Support welfin
 
 ---

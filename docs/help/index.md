@@ -4,6 +4,8 @@ permalink: /help
 nav_order: 2
 ---
 
+{% include project_archive_alert.html %}
+
 # Help & Feedback
 
 ---

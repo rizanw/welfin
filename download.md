@@ -5,6 +5,8 @@ description: personal finance companion designed to help you develop good financ
 permalink: /download
 ---
 
+{% include project_archive_alert.html %}
+
 <p class="fs-6 text-center" id="download-by-qr">
 </p>
 
