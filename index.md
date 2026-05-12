@@ -4,6 +4,8 @@ title: "welfin: your personal finance companion"
 nav_exclude: true
 ---
 
+{% include project_archive_alert.html %}
+
 ![welfin]({{ '/assets/images/icon.webp' | relative_url }}){: .welfin-icon}
 
 <p class="fs-8 fw-500 lh-0 text-center">
